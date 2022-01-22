@@ -1,0 +1,12 @@
+//sum of first n natural numbers using recursion
+int sum(int n)
+{
+	if(n==1) return 1;
+	return n+sum(n-1);
+}
+//for loop implementation
+sum=0;
+for(int i=1;i<=n;i++)
+	sum=sum+i;
+//best implementation
+sum= n*(n+1)/2;

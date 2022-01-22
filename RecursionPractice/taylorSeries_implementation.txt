@@ -1,0 +1,73 @@
+//finding e^x using taylor series. e^x= 1+x/1+x^2/2!+x^3/3!+....+x^n/n!
+
+/*WRONG APPROACH below
+
+//recursive approach
+double taylor(int n, int x)
+{
+	if(n==0) return pow(x,n)/fact(n);
+	return pow(x,n)/(double)fact(n)+taylor(n-1,x);
+}
+int fact(int n)
+{
+	if(n=0) return 1;
+	return n*fact(n-1);
+}
+int pow(int x, int n)
+{
+	if(n==0) return 1;
+	if(n%2==0) return pow(x*x,n/2);
+	else return x*pow(x*x,(n-1)/2);
+}
+
+//a slightly better approach
+double taylor(int n, int x)
+{
+	return (pow(x,n)/(double)fact(n))*(pow(x,n+1)/fact(n+1))/2;
+}
+int fact(int n)
+{
+	if(n=0) return 1;
+	return n*fact(n-1);
+}
+int pow(int x, int n)
+{
+	if(n==0) return 1;
+	if(n%2==0) return pow(x*x,n/2);
+	else return x*pow(x*x,(n-1)/2);
+}
+
+*///WRONG Approach end
+/********************************************************************/
+//better better recursive approach 2
+double taylor(int x,int n)
+{
+	static int p=1;
+	static int f=1;
+	if(n==0)
+		return 1;  
+	double res=taylor(x,n-1);
+	p=p*x;
+	f=f*n;
+	return res+p/(double)f;
+}
+/*******************************************************************/
+//best approach (horner's rule) using for loop
+double taylor(int x, int n)
+{
+	double y=1;
+	for( ;n>=1;n--)
+		y=1+x/(double)n*y;
+	return y;
+}
+//best approach in recursive
+double taylor(int x, int n)
+{
+	static double y=1;
+	if(n==0)
+		return y;
+	y=1+(x/(double)n)*y;
+	return taylor(x,n-1);
+}
+
+

@@ -1,0 +1,27 @@
+//power function i.e. n to power m
+int pow(int n,int m)
+{
+	if(m==0) return 1;
+	if(m%2==0):
+		return pow(n*n,m/2);
+	if(m%2!=0):
+		return n*pow(n*n,(m-1)/2);
+}
+int factor(int n, int m)
+{
+	int res=1;
+	int i=1;
+	while(m!=1)
+	{
+		if(m%i==0)
+		{
+			count++;
+			m=m/i;
+			continue;
+		}
+		if(count!=0) res=res*pow(n,count);
+		i++;
+		count=0;
+	}
+	return res;
+}

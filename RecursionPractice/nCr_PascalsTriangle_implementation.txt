@@ -1,0 +1,17 @@
+//nCr using pascal's triangle
+#include<stdio.h>
+#include<stdlib.h>
+#inclube<iostream>
+
+using namespace std;
+double C(int n, int r)
+{
+	if(n==0 || r==0) return 1;
+	return C(n-1,r-1)+C(n-1,r);
+}
+int main()
+{
+	int n,r,l;
+	cin>>n>>r;
+	C(n,r);
+}
